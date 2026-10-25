@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Susun Kata - Permainan Kata Sederhana</title>
+    <link rel="stylesheet" href="css/style (1).css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <h1>Susun Kata</h1>
+        <dl class="stats" aria-label="Statistik permainan">
+          <div>
+            <dt>Skor</dt>
+            <dd id="score">0</dd>
+          </div>
+          <div>
+            <dt>Nyawa</dt>
+            <dd id="lives" aria-live="polite">3</dd>
+          </div>
+          <div>
+            <dt>Rekor</dt>
+            <dd id="best">0</dd>
+          </div>
+        </dl>
+      </header>
+
+      <!-- Layar awal -->
+      <section id="screen-start" class="panel">
+        <p class="lead" style="text-align: center">
+          Huruf-huruf tercampur aduk. Susun kembali menjadi kata yang benar
+          sebelum waktu habis.
+        </p>
+        <div class="form-row">
+          <label for="category">Kategori</label>
+          <select id="category"></select>
+        </div>
+        <div class="form-row">
+          <label for="difficulty">Tingkat kesulitan</label>
+          <select id="difficulty">
+            <option value="45">Mudah (45 detik)</option>
+            <option value="30" selected>Sedang (30 detik)</option>
+            <option value="20">Sulit (20 detik)</option>
+          </select>
+        </div>
+        <ul class="rules">
+          <li>Klik huruf atau ketik dengan keyboard.</li>
+          <li>Backspace menghapus huruf terakhir, Enter mengecek jawaban.</li>
+          <li>Petunjuk membuka satu huruf tetapi mengurangi 5 skor.</li>
+          <li>Kehabisan waktu mengurangi satu nyawa.</li>
+        </ul>
+        <button id="btn-start" class="btn primary">Mulai bermain</button>
+      </section>
+
+      <!-- Layar permainan -->
+      <section id="screen-game" class="panel" hidden>
+        <div class="meta">
+          <span id="round">Kata 1 dari 10</span>
+          <span id="streak">Beruntun: 0</span>
+        </div>
+        <div
+          class="timer"
+          role="progressbar"
+          aria-label="Sisa waktu"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div id="timer-bar"></div>
+        </div>
+        <p id="clue" class="clue"></p>
+        <div id="slots" class="row slots" aria-label="Jawaban kamu"></div>
+        <div id="tiles" class="row tiles" aria-label="Pilihan huruf"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <div class="actions">
+          <button id="btn-shuffle" class="btn">Acak ulang</button>
+          <button id="btn-hint" class="btn">Petunjuk</button>
+          <button id="btn-skip" class="btn">Lewati</button>
+          <button id="btn-check" class="btn primary">Cek jawaban</button>
+        </div>
+      </section>
+
+      <!-- Layar akhir -->
+      <section id="screen-end" class="panel" hidden>
+        <h2 id="end-title">Permainan selesai</h2>
+        <p id="end-text" class="lead"></p>
+        <button id="btn-restart" class="btn primary">Main lagi</button>
+      </section>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
